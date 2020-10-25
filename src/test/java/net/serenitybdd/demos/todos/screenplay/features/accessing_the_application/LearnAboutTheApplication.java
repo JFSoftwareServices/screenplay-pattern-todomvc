@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import static net.serenitybdd.screenplay.EventualConsequence.eventually;
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
 import static net.serenitybdd.screenplay.matchers.ConsequenceMatchers.displays;
 import static org.hamcrest.Matchers.containsString;
@@ -59,6 +60,6 @@ public class LearnAboutTheApplication {
 
         givenThat(james).wasAbleTo(Start.withAnEmptyTodoList());
 
-        then(james).should(seeThat(Placeholder.text(), is("What needs to be done?")));
+        then(james).should(eventually(seeThat(Placeholder.text(), is("What needs to be done?"))));
     }
 }

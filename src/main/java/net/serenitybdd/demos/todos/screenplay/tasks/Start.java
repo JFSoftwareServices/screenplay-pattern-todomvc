@@ -23,6 +23,7 @@ public class Start {
     public static Performable withATodoListContaining(List<String> items) {
         return Task.where("{0} starts with a todo list containing " + Joiner.on(", ").join(items),
                 Open.browserOn().thePageNamed("home.page"),
+//                WaitUntil.the(TodoListApp.FOOTER, WebElementStateMatchers.isVisible()),
                 AddTodoItems.called(items)
         );
     }
